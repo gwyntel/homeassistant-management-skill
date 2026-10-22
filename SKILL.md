@@ -3,7 +3,7 @@ name: homeassistant-management
 description: Manage Home Assistant configuration, automations, and custom integrations. Use when creating or editing HA automations, deploying custom components, validating YAML config, troubleshooting parsing issues, or working with the HA REST API. Includes bundled validators for YAML syntax and entity reference checking.
 version: 1.1.0
 author: gwyntel
-license: Apache-2.0
+license: MutuaL-1.2
 compatibility: Requires Home Assistant 2024.x+ and Python 3.10+ with PyYAML
 metadata:
   hermes:
@@ -32,20 +32,16 @@ Manage HA config, build reliable automations, deploy custom integrations, valida
 
 Dependency: `pip install pyyaml`
 
-**Note**: `hermes skills install` currently fetches only `SKILL.md`. To get the scripts and references, clone the repo:
-```bash
-git clone https://github.com/gwyntel/homeassistant-management-skill.git
-cd homeassistant-management-skill
-pip install pyyaml
-python3 scripts/yaml_validator.py /path/to/ha/config/
-```
+**Installation note**: the install includes the supporting files, not just `SKILL.md`. The Vercel Skills CLI copies `SKILL.md`, `LICENSE.md`, `scripts/`, and `references/`; Hermes-native `hermes skills install <raw SKILL.md URL>` also pulls the sibling `scripts/` and `references/` folders (it needs the direct `SKILL.md` URL — a bare repository URL is rejected). In either case, resolve the scripts from the installed skill directory (for a global Hermes install, `~/.hermes/skills/homeassistant-management/`) rather than assuming the current working directory.
 
-Or download individual scripts directly:
+If you cannot install the skill at all, download individual scripts directly:
 - `curl -O https://raw.githubusercontent.com/gwyntel/homeassistant-management-skill/main/scripts/yaml_validator.py`
 - `curl -O https://raw.githubusercontent.com/gwyntel/homeassistant-management-skill/main/scripts/reference_validator.py`
 - `curl -O https://raw.githubusercontent.com/gwyntel/homeassistant-management-skill/main/scripts/entity_explorer.py`
 
 ### Quick Validation
+
+Run these from the installed skill directory (global Hermes install: `cd ~/.hermes/skills/homeassistant-management`):
 
 ```bash
 # YAML syntax check (fast, no HA required)
