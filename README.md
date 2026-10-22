@@ -35,7 +35,7 @@ Once installed, ask your agent to use the `homeassistant-management` skill for H
 ```bash
 python3 scripts/yaml_validator.py /path/to/ha/config/
 python3 scripts/reference_validator.py /path/to/ha/config/
-python3 scripts/entity_explorer.py /path/to/ha/config/ --domain light
+python3 scripts/entity_explorer.py --config /path/to/ha/config/ --domain light --full
 ```
 
 The YAML validator checks syntax and HA YAML structures. The reference validator requires `.storage/core.entity_registry` in the config directory. See [SKILL.md](SKILL.md) for the complete workflow, API reference, and cautions; see [automation pitfalls](references/ha-automation-pitfalls.md) for common YAML hazards.
