@@ -13,7 +13,7 @@ metadata:
 
 # Home Assistant Management
 
-Manage HA config, build reliable automations, deploy custom integrations, validate YAML, and avoid common pitfalls. Bundles working validators you can run immediately after install.
+Manage HA config, build reliable automations, deploy custom integrations, validate YAML, and avoid common pitfalls. Bundles working validators you can run immediately after install. Home Assistant is the target-system dependency; the agent following these instructions can be Hermes, Claude Code, Codex, or another agent. Use that agent's native shell and HA integration/API capabilities rather than assuming Hermes tool names.
 
 ## When to Use
 
@@ -88,12 +88,12 @@ Auth via `Authorization: Bearer {long_lived_access_token}`.
 
 ## Creating Automations — Preferred Workflow
 
-1. Read current `automations.yaml` from HA host
-2. Append new automation YAML to the file on the HA host directly
-3. Reload via `POST /api/services/automation/reload`
-4. Verify the new automation entity shows state `on` (not `unavailable`)
-5. If `unavailable`, check YAML parse with: `python3 -c 'import yaml; yaml.safe_load(open("/config/automations.yaml"))'`
-6. If still unavailable after fix, full HA restart may be needed
+1. Read the current automation configuration from the operator-approved HA config location.
+2. Propose the YAML change and obtain authorization before writing it to the target.
+3. After authorized edits, reload via the available HA integration or `POST /api/services/automation/reload`.
+4. Verify the new automation entity shows state `on` (not `unavailable`).
+5. If `unavailable`, check YAML parse with `python3 -c 'import yaml; yaml.safe_load(open("/path/to/automations.yaml"))'` (substitute the actual config path).
+6. If still unavailable after fix, explain the restart requirement and obtain authorization before restarting HA.
 
 **Do NOT use the HA REST API `/api/config/automation/config` endpoint** — it returns 404 on most HA versions. Write YAML to the file directly.
 
@@ -139,7 +139,7 @@ action:
 
 Format: `domain.location_room_device_sensor`
 
-When creating automations, discover entities first via `ha_list_entities` or the entity explorer script. Never assume entity IDs — verify them.
+When creating automations, discover entities first using the available Home Assistant integration/tool, HA UI, REST API, or the entity explorer script. `ha_list_entities` is a Hermes-specific tool name, not a required capability. Never assume entity IDs — verify them.
 
 ## Validation Strategies
 
