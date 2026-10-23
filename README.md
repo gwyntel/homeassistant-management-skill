@@ -22,7 +22,7 @@ To inspect available skills before installing:
 npx skills add gwyntel/homeassistant-management-skill --list
 ```
 
-The Vercel CLI installs the whole skill folder, not just the entry point: a global install contains `SKILL.md`, `LICENSE.md`, `scripts/`, and `references/`. The bundled validators are usable immediately after install, with no extra download step.
+The Vercel Skills CLI installs the complete skill directory—not only `SKILL.md`—including `LICENSE.md`, `scripts/`, and `references/`. No repository clone or separate download is needed to use the bundled validators.
 
 ## Use
 
