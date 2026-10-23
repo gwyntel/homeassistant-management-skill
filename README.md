@@ -32,7 +32,7 @@ Once installed, ask your agent to use the `homeassistant-management` skill for H
 SKILL_DIR="${HERMES_HOME:-$HOME/.hermes}/skills/homeassistant-management"
 python3 "$SKILL_DIR/scripts/yaml_validator.py" /path/to/your/ha/config/
 python3 "$SKILL_DIR/scripts/reference_validator.py" /path/to/your/ha/config/
-python3 "$SKILL_DIR/scripts/entity_explorer.py" --config /path/to/your/ha/config/ --domain light --full
+python3 "$SKILL_DIR/scripts/entity_explorer.py" --config /absolute/path/to/your/ha/config/ --domain light --full
 ```
 
 The YAML validator checks syntax and HA YAML structures. The reference validator requires `.storage/core.entity_registry` in the config directory. See [SKILL.md](SKILL.md) for the complete workflow, API reference, and cautions; see [automation pitfalls](references/ha-automation-pitfalls.md) for common YAML hazards.
@@ -55,4 +55,4 @@ npx skills update homeassistant-management -g -y
 
 ## License
 
-Licensed under the Mutualist License (MutuaL-1.2); see [LICENSE.md](LICENSE.md). The existing license and skill authorship are retained.
+Licensed under Apache-2.0; see [LICENSE.md](LICENSE.md). The skill's Apache-2.0 license and existing authorship are retained.

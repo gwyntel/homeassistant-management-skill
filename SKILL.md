@@ -3,7 +3,7 @@ name: homeassistant-management
 description: Manage Home Assistant configuration, automations, and custom integrations. Use when creating or editing HA automations, deploying custom components, validating YAML config, troubleshooting parsing issues, or working with the HA REST API. Includes bundled validators for YAML syntax and entity reference checking.
 version: 1.1.0
 author: gwyntel
-license: MutuaL-1.2
+license: Apache-2.0
 compatibility: Requires Home Assistant 2024.x+ and Python 3.10+ with PyYAML
 metadata:
   hermes:
