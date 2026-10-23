@@ -28,7 +28,7 @@ Manage HA config, build reliable automations, deploy custom integrations, valida
 
 - **`scripts/yaml_validator.py`** — Validates YAML syntax, file encoding, HA tag handling (`!include`, `!secret`, etc.), and structure of automations/scripts/configuration files. Run: `python3 scripts/yaml_validator.py [config_dir]`
 - **`scripts/reference_validator.py`** — Validates all entity references in config files actually exist in the entity registry. Detects stale/broken references and disabled entities. Run: `python3 scripts/reference_validator.py [config_dir]`
-- **`scripts/entity_explorer.py`** — Parse entity registry and display entities organized by domain and area. Supports filtering by domain, area, and search. Run: `python3 scripts/entity_explorer.py --config [config_dir] [--domain X] [--area X] [--search X] [--full]`
+- **`scripts/entity_explorer.py`** — Parse entity registry and display entities organized by domain and area. Supports filtering by domain, area, and search. Run: `python3 scripts/entity_explorer.py --config [config_dir] [--domain X] [--area X] [--search X] [--full]`. Set `--config` to your Home Assistant configuration directory, not the skill installation directory.
 
 Dependency: `pip install pyyaml`
 

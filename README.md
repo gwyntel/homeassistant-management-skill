@@ -4,9 +4,11 @@ A Home Assistant skill for maintaining configuration and automations, deploying 
 
 **Canonical source:** [gwyntel/homeassistant-management-skill](https://github.com/gwyntel/homeassistant-management-skill)  
 **Skill name:** `homeassistant-management`  
-**Requirements:** Home Assistant 2024.x+; Python 3.10+; PyYAML (`python3 -m pip install pyyaml`).
+**Requirements:** Home Assistant 2024.x+; Python 3.10+; PyYAML (`python3 -m pip install pyyaml`). The validators accept the path to your Home Assistant configuration directory (for example, `/config` on the HA host).
 
 ## Install with Vercel Skills CLI
+
+Prerequisite: Node.js 22.20 or later.
 
 Install for Hermes Agent globally:
 
@@ -28,9 +30,9 @@ Once installed, ask your agent to use the `homeassistant-management` skill for H
 
 ```bash
 SKILL_DIR="${HERMES_HOME:-$HOME/.hermes}/skills/homeassistant-management"
-python3 "$SKILL_DIR/scripts/yaml_validator.py" /path/to/ha/config/
-python3 "$SKILL_DIR/scripts/reference_validator.py" /path/to/ha/config/
-python3 "$SKILL_DIR/scripts/entity_explorer.py" --config /path/to/ha/config/ --domain light --full
+python3 "$SKILL_DIR/scripts/yaml_validator.py" /path/to/your/ha/config/
+python3 "$SKILL_DIR/scripts/reference_validator.py" /path/to/your/ha/config/
+python3 "$SKILL_DIR/scripts/entity_explorer.py" --config /path/to/your/ha/config/ --domain light --full
 ```
 
 The YAML validator checks syntax and HA YAML structures. The reference validator requires `.storage/core.entity_registry` in the config directory. See [SKILL.md](SKILL.md) for the complete workflow, API reference, and cautions; see [automation pitfalls](references/ha-automation-pitfalls.md) for common YAML hazards.
