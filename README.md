@@ -1,3 +1,5 @@
+[![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/gwyntel/homeassistant-management-skill)
+
 # Home Assistant Management
 
 A Home Assistant skill for maintaining configuration and automations, deploying custom integrations, and validating YAML and entity references. Includes Python validators and an entity explorer.
